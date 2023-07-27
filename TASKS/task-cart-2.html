@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Web-Task</title>
+    <!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="path/to/alertify.min.css" />
+<script src="path/to/alertify.min.js"></script>
+    <style>
+
+         .container .fa-regular{
+    font-size: 33px;
+   }
+   .container .fa-solid{
+    font-size: 33px;
+
+   }
+     *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        user-select: none;
+     }
+     a{
+        text-decoration: none;
+        color: black;
+     }
+     header{
+        display: grid;
+        grid-template-columns: 1.5fr 4fr 4.5fr;
+        padding: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+     }
+     .logo-area p{
+        color: gray;
+        font-style: italic;
+        font-weight: bold;
+        display: flex;
+        transform: translateX(50px);
+        align-items: center;
+        font-size: 17px;
+        padding-left: 7px;
+
+     }
+     .logo-area p span{
+        color: rgb(213, 213, 21);
+     }
+.search-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.search-area input{
+    width: 95%;
+    height: 39px;
+    border: none;
+    outline: none;
+    padding-left: 33px;
+    border-radius: 5px;
+    background-color: #f1f5ff;
+}
+.search-area span{
+    position: absolute;
+    top: 35%;
+    left: 4%;
+    cursor: pointer;
+}
+:placeholder-shown{
+    padding-left: 13%;
+    font-size: 15px;
+}
+.actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;  
+}
+
+.actions span{
+    margin: auto;
+   
+}
+.actions div:nth-child(2),.actions div:nth-child(1),.actions div:nth-child(3),.actions div:nth-child(4)
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+.actions div:nth-child(3) span{
+  padding: 5px;
+  cursor: pointer;
+}
+.actions div:nth-child(4){
+    cursor: pointer;
+}
+
+.actions a{
+    text-decoration: none;
+     color: black;
+     padding: 10px;
+     border-radius: 8px;
+     transition: 0.5s;
+     cursor: pointer;
+ } 
+.actions a:hover{
+    background-color: blue;
+    color: white;
+}
+.actions a:hover .fa-angle-down{
+    transform: rotateX(180deg);
+    font-size: 18px;
+}
+.fa-angle-down{
+    transform: rotateX(0deg);
+}
+.cat{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    /* background-color: red; */
+}
+@media(max-width:1200px)
+{
+    header{
+        grid-template-columns: 1fr 2fr 6fr;
+    }
+    .logo-area div{
+       transform: translateX(-27px);
+    }
+    .actions .p1 span,.p2 span{
+        display: none;
+    }
+
+    .actions .p3 span:nth-child(2)
+    {
+        display: none;
+    }
+     
+ 
+}
+.cat ul{
+    height: auto;
+    width: 100%;
+}
+
+.cat ul li{
+    display: inline;
+    font-size: 17px;
+    padding: 10px;
+    cursor: pointer;
+}
+.container{
+    width: 100%;
+    height: 400px;   
+    padding: 50px;
+     display: grid;
+    grid-gap: 22px;
+     grid-template-columns: 1fr 1fr 1fr 1fr;
+     grid-template-rows: auto;
+    justify-content: space-evenly;
+}
+.product-card{
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.card-img{
+    width: 100%;
+    height: 250px;
+    /* padding: 7px; */
+}
+.card-img img{
+    width: 100%;
+    height: 100%;
+}
+.card-info{
+width: 100%;
+height: auto;
+font-family: sans-serif;
+padding: 20px;
+
+}
+.card-info b{
+    color: gray;
+    font-weight: normal;
+}
+.card-info p{
+    line-height: 22px;
+}
+.card-info p:nth-child(3)
+{
+   font-size: 22px;
+   padding-top: 7px;
+}
+.card-info p b{
+    text-decoration: line-through;
+    font-size: 16px;
+}
+.card-info p span{
+    font-size: 18px;
+    padding-left: 17px;
+    color: green;
+}
+.card-info b:nth-child(4){
+    display: inline-block;
+    padding-top: 17px;
+}
+.wishlist,.cart{
+    cursor: pointer;
+}
+.increase{
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    font-size: 28px;
+   }
+   #counter, #cart-counter {
+    font-size: 13px;
+    position: absolute;
+    top: -28%;
+    right: -4%;
+    color: blue;
+    background-color: orange;
+    padding: 3px 6px 3px 6px;
+    border-radius: 50%;
+}
+.cart{
+    display: inline-block;
+  margin: 23px;
+  position: relative;
+}
+    </style>
+    <style>
+        .cart{
+        position: relative;
+        }
+        .dropdown-1{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            position: absolute;
+            top: 100%;
+            left: -250%;
+           display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- header-start -->
+  <header>
+      <div class="logo-area">
+        <div>
+     <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/flipkart-095e08.svg" alt="">
+     <p>Explore <span>
+        Plus
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M7.47092 2.5242C7.47092 2.5242 8.75893 3.1648 9.39493 3.4367C10.0139 3.7007 10.0839 4.6903 9.40292 5.0245C8.72192 5.3588 8.53493 5.4131 8.53493 5.4131C8.53493 5.4131 8.64192 5.1359 8.62692 4.868C8.58392 4.3905 7.17693 4.0031 6.24593 3.7737C6.24593 3.7737 5.53092 1.5214 5.20692 0.893999C4.88192 0.262599 4.22192 0 4.22192 0L5.77992 0.0212002C5.77992 0.0212002 6.31692 -0.00540006 6.55492 0.5716C6.79092 1.1513 7.47092 2.5242 7.47092 2.5242Z" fill="url(#paint0_linear_201_32)"/>
+            <path d="M7.37999 7.4593C7.37999 7.4593 6.74799 8.7379 6.46999 9.3919C6.20599 10.0126 5.20098 10.0829 4.86798 9.3998C4.53498 8.7167 4.50098 8.596 4.50098 8.596C4.50098 8.596 4.70199 8.6358 5.02199 8.6212C5.49799 8.5774 5.90598 7.1661 6.13498 6.231C6.13498 6.231 8.37698 5.5121 9.00398 5.1884C9.63298 4.8621 9.89299 4.2002 9.89299 4.2002L9.87198 5.9976C9.87198 5.9976 9.89899 6.3039 9.32399 6.5427C8.74699 6.7788 7.37999 7.4593 7.37999 7.4593Z" fill="url(#paint1_linear_201_32)"/>
+            <path d="M2.42097 7.3663C2.42097 7.3663 1.13896 6.7296 0.495964 6.4537C-0.123036 6.1897 -0.193031 5.1989 0.487969 4.866C1.16797 4.5317 1.44196 4.4707 1.44196 4.4707C1.44196 4.4707 1.26496 4.7545 1.30796 5.0742C1.35296 5.553 2.71496 5.8873 3.64396 6.1168C3.64396 6.1168 4.38596 8.3558 4.68296 8.9964C5.04496 9.7764 5.64497 9.89581 5.64497 9.89581L3.87797 9.86921C3.87797 9.86921 3.57196 9.89581 3.33396 9.31881C3.09896 8.73911 2.42097 7.3663 2.42097 7.3663Z" fill="url(#paint2_linear_201_32)"/>
+            <path d="M2.52699 2.42743C2.52699 2.42743 3.161 1.14213 3.436 0.494827C3.699 -0.125873 4.68501 -0.194873 5.01801 0.486927C5.35101 1.17003 5.383 1.29333 5.383 1.29333C5.383 1.29333 5.131 1.29733 4.866 1.31193C4.389 1.35703 3.99999 2.72323 3.77299 3.65703C3.77299 3.65703 1.53699 4.39053 0.903992 4.69963C0.0329917 5.12403 0 5.66793 0 5.66793L0.0350037 3.89183C0.0350037 3.89183 0.00899965 3.58543 0.584 3.34673C1.159 3.10793 2.52699 2.42743 2.52699 2.42743Z" fill="url(#paint3_linear_201_32)"/>
+            <defs>
+            <linearGradient id="paint0_linear_201_32" x1="4.25592" y1="-0.0336" x2="9.40192" y2="5.094" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0411" stop-color="#FFF300"/>
+            <stop offset="0.2727" stop-color="#FFF300"/>
+            <stop offset="0.5022" stop-color="#FFE500"/>
+            <stop offset="0.8126" stop-color="#F2A930"/>
+            </linearGradient>
+            <linearGradient id="paint1_linear_201_32" x1="4.80198" y1="9.4004" x2="9.95698" y2="4.26408" gradientUnits="userSpaceOnUse">
+            <stop offset="0.1874" stop-color="#F2A930"/>
+            <stop offset="0.4978" stop-color="#FFE500"/>
+            <stop offset="0.7273" stop-color="#FFF300"/>
+            <stop offset="0.9589" stop-color="#FFF300"/>
+            </linearGradient>
+            <linearGradient id="paint2_linear_201_32" x1="0.495966" y1="4.7894" x2="5.63297" y2="9.908" gradientUnits="userSpaceOnUse">
+            <stop offset="0.1874" stop-color="#F2A930"/>
+            <stop offset="0.4978" stop-color="#FFE500"/>
+            <stop offset="0.7273" stop-color="#FFF300"/>
+            <stop offset="0.9589" stop-color="#FFF300"/>
+            </linearGradient>
+            <linearGradient id="paint3_linear_201_32" x1="-0.0280001" y1="5.64033" x2="5.115" y2="0.516331" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0411" stop-color="#FFF300"/>
+            <stop offset="0.2727" stop-color="#FFF300"/>
+            <stop offset="0.5022" stop-color="#FFE500"/>
+            <stop offset="0.8126" stop-color="#F2A930"/>
+            </linearGradient>
+            </defs>
+            </svg>
+     </span></p>
+     </div>
+      </div>
+      <div class="search-area">
+        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+      <input type="text" name="" id="" placeholder="Search For Product">
+      </div>
+      <div class="actions">
+      <div class="p1">
+         <svg class="svg1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M4.49979 13.0547V19.2729C4.49979 19.4658 4.57881 19.6507 4.71947 19.7871C4.86012 19.9235 5.05088 20.0001 5.24979 20.0001H18.7498C18.9487 20.0001 19.1395 19.9235 19.2801 19.7871C19.4208 19.6507 19.4998 19.4658 19.4998 19.2729V13.0547" stroke="#212121" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5.0625 4H18.9375C19.1002 4.0013 19.2582 4.05324 19.3881 4.14817C19.5181 4.24309 19.6132 4.37599 19.6594 4.52727L21 9.09091H3L4.34062 4.52727C4.38682 4.37599 4.4819 4.24309 4.61187 4.14817C4.74183 4.05324 4.8998 4.0013 5.0625 4V4Z" stroke="#212121" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9 9.09082V10.5454C9 11.3169 8.68393 12.0568 8.12132 12.6024C7.55871 13.148 6.79565 13.4545 6 13.4545C5.20435 13.4545 4.44129 13.148 3.87868 12.6024C3.31607 12.0568 3 11.3169 3 10.5454V9.09082" stroke="#212121" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M14.9999 9.09082V10.5454C14.9999 11.3169 14.6839 12.0568 14.1213 12.6024C13.5586 13.148 12.7956 13.4545 11.9999 13.4545C11.2043 13.4545 10.4412 13.148 9.87861 12.6024C9.316 12.0568 8.99993 11.3169 8.99993 10.5454V9.09082" stroke="#212121" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20.9999 9.09082V10.5454C20.9999 11.3169 20.6838 12.0568 20.1212 12.6024C19.5586 13.148 18.7955 13.4545 17.9999 13.4545C17.2042 13.4545 16.4412 13.148 15.8785 12.6024C15.3159 12.0568 14.9999 11.3169 14.9999 10.5454V9.09082" stroke="#212121" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg> <span>Become a Seller</span></div>
+      <div class="p2">
+        <a hef="#">
+            <i class="fa-regular fa-user"></i>&nbsp;<span>Sign-in</span> <b>
+                <i class="fa-solid fa-angle-down"></i>
+            </b>
+        </a>
+      </div>
+      <div class="p3">
+        <div>
+        <span class="increase">
+            <i class="fa-regular fa-heart"> <b id="counter">0</b>
+            </i>
+        </span>
+
+        <span>
+            <span class="cart">
+                <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+                <b id="cart-counter">0</b>
+
+                  <div class="dropdown-1">
+                    hello world !
+                  </div>
+               </span>
+              
+        </span>
+        <span>Cart</span>
+        </div>
+      
+      </div>
+      <div>
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </div>
+      </div>
+  </header>
+    <!-- header-close -->
+    <!-- Categories-section-start -->
+    <div class="cat">
+        <ul id="ul">
+            <li id="all"><a href="#">All</a></li>
+            <li id="cl"><a href="#">Clothes</a></li>
+            <li id="sh"><a href="#">Shooes</a></li>
+            <li id="Bg"><a href="#">Bags</a></li>
+            <li id="go"><a href="#">Goggles</a></li>
+            <li id="buds"><a href="#">Air-Buds</a></li>
+       </ul>
+    </div>
+    <!-- Categories-section-close -->
+    <!-- container-start -->
+  <div class="container">
+  <div class="product-card cloth" data-added="false">
+    <div class="card-img">
+        <img src="https://rukminim2.flixcart.com/image/612/612/l3ys70w0/t-shirt/1/d/f/l-bon-full-sleeves-t-shirt-clothes-town-original-imageyqgfpr7qdqv.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>Clothes Town</b>
+        <p>Men Solid Mand....</p>
+        <p>&#8377;199
+            <b>&#8377;499</b>
+            <span>40% off</span>
+        </p>
+        <b>Size M, L, XL</b>
+            <span class="wishlist">
+                <!-- Heart icon when not added to the wishlist -->
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+            </span>
+        
+            <span class="cart">
+                <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+              </span>
+    </div>
+  </div>
+  <div class="product-card cloth" data-added="false">
+    <div class="card-img">
+       <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/3/p/h/m-mg23shln112-s-hs-clothes-encounters-original-imagr5ufbnbdysc6.jpeg?q=70" alt="" id="wish">
+    </div>
+    <div class="card-info">
+        <b>Clothes Town</b>
+        <p>Men Solid Mand....</p>
+        <p>&#8377;300
+            <b>&#8377;499</b>
+            <span>40% off</span>
+        </p>
+        <b>Size M, L, XL</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card cloth" data-added="false">
+    <div class="card-img">
+      <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/kids-t-shirt/t/r/y/4-5-years-na-kd-708-because-navy-26-atlans-clothes-original-imagz7bgarubcsya.jpeg?q=70" alt="" id="wish">
+    </div>
+    <div class="card-info">
+        <b>Clothes Town</b>
+        <p>Men Solid Mand....</p>
+        <p>&#8377;200
+            <b>&#8377;499</b>
+            <span>40% off</span>
+        </p>
+        <b>Size M, L, XL</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card cloth" data-added="false">
+    <div class="card-img">
+     <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/w/e/i/s-mg23shln110-s-hs-clothes-encounters-original-imagr5p2n7fsqyqz.jpeg?q=70" alt="" id="wish">
+    </div>
+    <div class="card-info">
+        <b>Clothes Town</b>
+        <p>Men Solid Mand....</p>
+        <p>&#8377;299
+            <b>&#8377;249</b>
+            <span>40% off</span>
+        </p>
+        <b>Size M, L, XL</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <!-- ----------- -->
+  <div class="product-card cloth" data-added="false">
+    <div class="card-img">
+       <img src="https://rukminim2.flixcart.com/image/612/612/l3ys70w0/t-shirt/p/d/m/l-bon-full-sleeves-t-shirt-clothes-town-original-imageyqffas8hw66.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>Clothes Town</b>
+        <p>Men Solid Mand....</p>
+        <p>&#8377;199
+            <b>&#8377;499</b>
+            <span>40% off</span>
+        </p>
+        <b>Size M, L, XL</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card cloth" data-added="false">
+    <div class="card-img">
+       <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/3/p/h/m-mg23shln112-s-hs-clothes-encounters-original-imagr5ufbnbdysc6.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>Clothes Town</b>
+        <p>Men Solid Mand....</p>
+        <p>&#8377;210
+            <b>&#8377;499</b>
+            <span>40% off</span>
+        </p>
+        <b>Size M, L, XL</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card cloth" data-added="false">
+    <div class="card-img">
+     <img src="https://rukminim2.flixcart.com/image/612/612/kuof5ow0/fabric/7/v/v/no-2-35-m-unstitched-na-heart-fabfiza-original-imag7qyhw2tamhfs.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>Clothes Town</b>
+        <p>Men Solid Mand....</p>
+        <p>&#8377;329
+            <b>&#8377;499</b>
+            <span>40% off</span>
+        </p>
+        <b>Size M, L, XL</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card cloth" data-added="false">
+    <div class="card-img">
+    <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/kids-apparel-combo/i/w/j/1-2-years-mom-dad-adonyx-original-imagkv2emzpehygb.jpeg?q=70" alt=""/>
+    </div>
+    <div class="card-info">
+        <b>Clothes Town</b>
+        <p>Men Solid Mand....</p>
+        <p>&#8377;249
+            <b>&#8377;249</b>
+            <span>40% off</span>
+        </p>
+        <b>Size M, L, XL</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <!-- --------------- -->
+  <div class="product-card shooes" data-added="false">
+    <div class="card-img">
+    <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/y/q/k/-original-imagzkgqp9nynzfp.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>REEBOK</b>
+        <p>Energen M Runni....</p>
+        <p>&#8377;1881
+            <b>&#8377;3799</b>
+            <span>50% off</span>
+        </p>
+        <b>Size 6,7,8,9,10,11</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+        </span>
+    </div>
+  </div>
+  <div class="product-card shooes" data-added="false">
+    <div class="card-img">
+   <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/q/4/a/4-mrj1992-4-aadi-white-black-yellow-original-imagg3kryyszam65.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>REEBOK</b>
+        <p>Energen M Runni....</p>
+        <p>&#8377;499
+            <b>&#8377;1999</b>
+            <span>75% off</span>
+        </p>
+        <b>Size 6,7,8,9,10,11</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card shooes" data-added="false">
+    <div class="card-img">
+  <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/n/w/t/6-brd-406-brd-466-6-birde-grey-orange-green-original-imag5ccyzzwrwwfh.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>REEBOK</b>
+        <p>Energen M Runni....</p>
+        <p>&#8377;399
+            <b>&#8377;999</b>
+            <span>60% off</span>
+        </p>
+        <b>Size 6,7,8,9,10,11</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card shooes" data-added="false">
+    <div class="card-img">
+  <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/g/1/f/6-11g-787-6-campus-wht-sil-b-org-original-imaghycd7arhuqk9.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>REEBOK</b>
+        <p>Energen M Runni....</p>
+        <p>&#8377;1379
+            <b>&#8377;1899</b>
+            <span>27% off</span>
+        </p>
+        <b>Size 6,7,8,9,10,11</b>
+        <span class="wishlist">
+            <img width="30" height="30" src="https://img.icons8.com/ios/5000/like--v1.png" alt="like--v1" id="wish"/>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+        </span>
+    </div>
+  </div>
+  <div class="product-card shooes" data-added="false">
+    <div class="card-img">
+<img src="https://rukminim2.flixcart.com/image/832/832/xif0q/shoe/1/v/i/9-hr0154-10-reebok-black-original-imagnphq2ceqympd.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>REEBOK</b>
+        <p>Energen M Runni....</p>
+        <p>&#8377;2999
+            <b>&#8377;5999</b>
+            <span>50% off</span>
+        </p>
+        <b>Size 6,7,8,9,10,11</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+    <!-- ---------------------- -->
+  <div class="product-card bag" data-added="false">
+    <div class="card-img">
+    <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/backpack/q/q/3/-original-imaghzzuxhezyhm8.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>WROGN</b>
+        <p>Large 40 L Laptop....</p>
+        <p>&#8377;801
+            <b>&#8377;3499</b>
+            <span>77% off</span>
+        </p>
+        <b>Free delivery</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card bag" data-added="false">
+    <div class="card-img">
+   <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/backpack/y/q/d/-original-imagh3w8jyhynyyr.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>WROGN</b>
+        <p>Large 40 L Laptop....</p>
+        <p>&#8377;441
+            <b>&#8377;1999</b>
+            <span>77% off</span>
+        </p>
+        <b>Free delivery</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card bag" data-added="false">
+    <div class="card-img">
+  <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/backpack/v/7/a/ashper-unisex-backpack-with-usb-port-and-rain-cover-w-097-laptop-original-imagmmkyrsezzhry.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>WROGN</b>
+        <p>Large 40 L Laptop....</p>
+        <p>&#8377;789
+            <b>&#8377;1999</b>
+            <span>77% off</span>
+        </p>
+        <b>Free delivery</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card bag" data-added="false">
+    <div class="card-img">
+  <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/backpack/v/k/b/-original-imagrdzaehy6bbah.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>WROGN</b>
+        <p>Large 40 L Laptop....</p>
+        <p>&#8377;560
+            <b>&#8377;1649</b>
+            <span>66% off</span>
+        </p>
+        <b>Free delivery</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card bag" data-added="false">
+    <div class="card-img">
+ <img src="https://rukminim2.flixcart.com/image/612/612/k59xci80/backpack/t/d/z/khadi-textured-hi-storage-khadi-textured-laptop-backpack-original-imafnzsqhf4trvea.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>WROGN</b>
+        <p>Large 40 L Laptop....</p>
+        <p>&#8377;497
+            <b>&#8377;1899</b>
+            <span>73% off</span>
+        </p>
+        <b>Free delivery</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card bag" data-added="false">
+    <div class="card-img">
+ <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/backpack/5/n/t/6-backpack-laptop-bag-office-bag-with-usb-charging-port-college-original-imagg9zewjjfhgdp.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>WROGN</b>
+        <p>Large 40 L Laptop....</p>
+        <p>&#8377;599
+            <b>&#8377;2399</b>
+            <span>75% off</span>
+        </p>
+        <b>Free delivery</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card bag" data-added="false">
+    <div class="card-img">
+ <img src="https://rukminim2.flixcart.com/image/300/300/kgv5x8w0/backpack/e/f/g/unisex-backpack-with-rain-cover-and-reflective-strip-p-039-original-imafxy82qrqxvbvm.jpeg?q=90" alt="">
+    </div>
+    <div class="card-info">
+        <b>WROGN</b>
+        <p>Large 40 L Laptop....</p>
+        <p>&#8377;1126
+            <b>&#8377;2399</b>
+            <span>75% off</span>
+        </p>
+        <b>Free delivery</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <!-- ------------------ -->
+  <div class="product-card gogles" data-added="false">
+    <div class="card-img">
+  <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/sunglass/r/n/z/medium-candyb1-elligator-original-imaggtvrnnrbdvkn.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>Elligator</b>
+        <p>UV Protection Cat-eye.......</p>
+        <p>&#8377;168
+            <b>&#8377;599</b>
+            <span>71% off</span>
+        </p>
+        <b>Free delivery</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+         <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card gogles" data-added="false">
+    <div class="card-img">
+  <img src="https://rukminim2.flixcart.com/image/612/612/jxapua80/sunglass/z/b/y/free-size-av201-elligator-original-imafhsbqze8eqg2e.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>Elligator</b>
+        <p>UV Protection Cat-eye.......</p>
+        <p>&#8377;199
+            <b>&#8377;999</b>
+            <span>71% off</span>
+        </p>
+        <b>Free delivery</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card gogles" data-added="false">
+    <div class="card-img">
+  <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/sunglass/6/s/4/rdy057-black-sunglasses-free-size-roadway-original-imagzzaddfqwfeqz.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>Elligator</b>
+        <p>UV Protection Cat-eye.......</p>
+        <p>&#8377;372
+            <b>&#8377;1999</b>
+            <span>81% off</span>
+        </p>
+        <b>size free size</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card gogles" data-added="false">
+    <div class="card-img">
+ <img src="https://rukminim2.flixcart.com/image/612/612/kjhgzgw0-0/sunglass/c/7/5/shah-m-bkge-original-imafzffqfhxhhny7.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>Elligator</b>
+        <p>UV Protection Cat-eye.......</p>
+        <p>&#8377;199
+            <b>&#8377;999</b>
+            <span>80% off</span>
+        </p>
+        <b>size Medium size</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card gogles" data-added="false">
+    <div class="card-img">
+ <img src="https://rukminim2.flixcart.com/image/612/612/kd3f3bk0pkrrdj/sunglass/i/b/j/medium-gn3002-sil-blu-gn3002-blu-blu-gansta-original-imafu65ggqybqmdj.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>Elligator</b>
+        <p>UV Protection Cat-eye.......</p>
+        <p>&#8377;285
+            <b>&#8377;1999</b>
+            <span>85% off</span>
+        </p>
+        <b>size free size</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+  <div class="product-card gogles" data-added="false">
+    <div class="card-img">
+ <img src="https://rukminim2.flixcart.com/image/612/612/l3929ow0/sunglass/j/f/k/m-mt2001-sil-blk-metronaut-original-imageernzcj5fvpp.jpeg?q=70" alt="">
+    </div>
+    <div class="card-info">
+        <b>Elligator</b>
+        <p>UV Protection Cat-eye.......</p>
+        <p>&#8377;249
+            <b>&#8377;1299</b>
+            <span>80% off</span>
+        </p>
+        <b>size free size</b>
+        <span class="wishlist">
+            <!-- Heart icon when not added to the wishlist -->
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+        </span>
+        <span class="cart">
+            <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+          </span>
+    </div>
+  </div>
+    <!-- ------------------ -->
+    <div class="product-card air_buds" data-added="false">
+        <div class="card-img">
+    <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/d/b/o/m19-earbuds-tws-buds-5-1-earbuds-with-280h-playtime-headphones-original-imagr8z542fcypgh.jpeg?q=70" alt="">
+        </div>
+        <div class="card-info">
+            <b>Seashot M19 Earbuds</b>
+            <p>5.1 Earbuds with 280H Play.........</p>
+            <p>&#8377;498
+                <b>&#8377;4799</b>
+                <span>89% off</span>
+            </p>
+            <b>Free delivery</b>
+            <span class="wishlist">
+                <!-- Heart icon when not added to the wishlist -->
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+            </span>
+            <span class="cart">
+                <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+              </span>
+        </div>
+      </div>
+      <div class="product-card air_buds" data-added="false">
+        <div class="card-img">
+ <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/j/t/c/-original-imaghbdup9jbrdzh.jpeg?q=70" alt="">
+        </div>
+        <div class="card-info">
+            <b>Seashot M19 Earbuds</b>
+            <p>5.1 Earbuds with 280H Play.........</p>
+            <p>&#8377;1498
+                <b>&#8377;2999</b>
+                <span>89% off</span>
+            </p>
+            <b>Free delivery</b>
+            <span class="wishlist">
+                <!-- Heart icon when not added to the wishlist -->
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+            </span>
+            <span class="cart">
+                <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+              </span>
+        </div>
+      </div>
+      <div class="product-card air_buds" data-added="false">
+        <div class="card-img">
+  <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/d/q/r/-original-imagp6skt77zsdjt.jpeg?q=70" alt="">
+        </div>
+        <div class="card-info">
+            <b>Seashot M19 Earbuds</b>
+            <p>5.1 Earbuds with 280H Play.........</p>
+            <p>&#8377;1290
+                <b>&#8377;2999</b>
+                <span>56% off</span>
+            </p>
+            <b>Free delivery</b>
+            <span class="wishlist">
+                <!-- Heart icon when not added to the wishlist -->
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+            </span>
+            <span class="cart">
+                <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+              </span>
+        </div>
+      </div>
+      <div class="product-card air_buds" data-added="false">
+        <div class="card-img">
+ <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/w/t/i/-original-imagqhqkafvuxanx.jpeg?q=70" alt="">
+        </div>
+        <div class="card-info">
+            <b>Seashot M19 Earbuds</b>
+            <p>5.1 Earbuds with 280H Play.........</p>
+            <p>&#8377;1599
+                <b>&#8377;3999</b>
+                <span>60% off</span>
+            </p>
+            <b>Free delivery</b>
+            <span class="wishlist">
+                <!-- Heart icon when not added to the wishlist -->
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+            </span>
+            <span class="cart">
+                <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+              </span>
+        </div>
+      </div>
+      <div class="product-card air_buds" data-added="false">
+        <div class="card-img">
+ <img src="https://rukminim2.flixcart.com/image/612/612/kwxv98w0/headphone/s/c/j/-original-imag9hxj7qmmyqmh.jpeg?q=70" alt="">
+        </div>
+        <div class="card-info">
+            <b>Seashot M19 Earbuds</b>
+            <p>5.1 Earbuds with 280H Play.........</p>
+            <p>&#8377;899
+                <b>&#8377;2999</b>
+                <span>70% off</span>
+            </p>
+            <b>Free delivery</b>
+            <span class="wishlist">
+                <!-- Heart icon when not added to the wishlist -->
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+            </span>
+            <span class="cart">
+                <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+              </span>
+        </div>
+      </div>
+      <div class="product-card air_buds" data-added="false">
+        <div class="card-img">
+  <img src="https://rukminim2.flixcart.com/image/612/612/l2jcccw0/headphone/r/w/6/-original-imagduydgdqwmkqc.jpeg?q=70" alt="">
+        </div>
+        <div class="card-info">
+            <b>Seashot M19 Earbuds</b>
+            <p>5.1 Earbuds with 280H Play.........</p>
+            <p>&#8377;1099
+                <b>&#8377;3999</b>
+                <span>70% off</span>
+            </p>
+            <b>Free delivery</b>
+            <span class="wishlist">
+                <!-- Heart icon when not added to the wishlist -->
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+            </span>
+            <span class="cart">
+                <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+              </span>
+        </div>
+      </div>
+  </div>
+    <!-- container-close -->
+<!-- for-border-apply on category -->
+    <script>
+ const allLi = document.querySelectorAll('#ul li');
+
+allLi.forEach(li => {
+  li.addEventListener('click', () => {
+    if (li.style.borderBottom) {
+      li.style.borderBottom = "";
+    } else {
+      allLi.forEach(otherLi => {
+        otherLi.style.borderBottom = "";
+      });
+      li.style.borderBottom = "2px solid black";
+      li.style.transition = "0.4s";
+    }
+  });
+});
+    </script>
+   <!-- category select-->
+    <script>
+    var all = document.getElementById('all');
+    var C_L = document.getElementById('cl');
+    var sh_oo = document.getElementById('sh');
+    var BAG = document.getElementById('Bg');
+    var Chashma = document.getElementById('go');
+    var Air_buds = document.getElementById('buds');
+// 00--------------------------------------------------//
+    var CL = document.querySelectorAll('.cloth'); 
+    var SH = document.querySelectorAll('.shooes'); 
+    var B_G= document.querySelectorAll('.bag'); 
+    var cs= document.querySelectorAll('.gogles'); 
+    var bd= document.querySelectorAll('.air_buds'); 
+         all.addEventListener('click',()=>{
+            var p = document.querySelectorAll('.product-card');
+             p.forEach((p)=>{
+                p.style.display="block";
+             })
+         })
+        C_L.addEventListener('click',()=>{
+            SH.forEach((a)=>{
+                a.style.display='none';
+            })
+            B_G.forEach((a)=>{
+                a.style.display='none';
+            })
+            cs.forEach((a)=>{
+                a.style.display='none';
+            })
+            bd.forEach((a)=>{
+                a.style.display='none';
+            })
+            CL.forEach((a)=>{
+                a.style.display='block';
+            })
+        })
+        sh_oo.addEventListener('click',()=>{
+            CL.forEach((a)=>{
+                a.style.display='none';
+            })
+            SH.forEach((a)=>{
+                a.style.display='block';
+            })
+            B_G.forEach((a)=>{
+                a.style.display='none';
+            })
+            cs.forEach((a)=>{
+                a.style.display='none';
+            })
+            bd.forEach((a)=>{
+                a.style.display='none';
+            })
+        })
+        BAG.addEventListener('click',()=>{
+            CL.forEach((a)=>{
+                a.style.display='none';
+            })
+            SH.forEach((a)=>{
+                a.style.display='none';
+            })
+            B_G.forEach((a)=>{
+                a.style.display='none';
+            })
+            cs.forEach((a)=>{
+                a.style.display='none';
+            })
+            bd.forEach((a)=>{
+                a.style.display='none';
+            })
+            B_G.forEach((a)=>{
+                a.style.display='block';
+            })
+        }) 
+        Chashma.addEventListener('click',()=>{
+            CL.forEach((a)=>{
+                a.style.display='none';
+            })
+            SH.forEach((a)=>{
+                a.style.display='none';
+            })
+            B_G.forEach((a)=>{
+                a.style.display='none';
+            })
+            cs.forEach((a)=>{
+                a.style.display='none';
+            })
+            bd.forEach((a)=>{
+                a.style.display='none';
+            })
+            B_G.forEach((a)=>{
+                a.style.display='none';
+            })
+            cs.forEach((a)=>{
+                a.style.display='block';
+            })
+        })
+        Air_buds.addEventListener('click',()=>{
+            CL.forEach((a)=>{
+                a.style.display='none';
+            })
+            SH.forEach((a)=>{
+                a.style.display='none';
+            })
+            B_G.forEach((a)=>{
+                a.style.display='none';
+            })
+            cs.forEach((a)=>{
+                a.style.display='none';
+            })
+            bd.forEach((a)=>{
+                a.style.display='none';
+            })
+            B_G.forEach((a)=>{
+                a.style.display='none';
+            })
+            cs.forEach((a)=>{
+                a.style.display='none';
+            })
+            bd.forEach((a)=>{
+                a.style.display='block';
+            })
+        })
+
+  </script>  
+   <!-- wishlist button and its counters-->
+    <script>
+    const wishlistIcons = document.querySelectorAll(".wishlist");
+    const counter = document.getElementById('counter');
+    let count = parseInt(counter.innerText);
+    
+    
+    if (count === 0) {
+        counter.style.display = "none";
+    }
+    
+
+    wishlistIcons.forEach(wishlistIcon => {
+        wishlistIcon.addEventListener("click", () => {
+        const regularHeart = wishlistIcon.querySelector(".fa-regular");
+        const solidHeart = wishlistIcon.querySelector(".fa-solid");
+    
+        regularHeart.style.display = (regularHeart.style.display === "none") ? "inline-block" : "none";
+        solidHeart.style.display = (solidHeart.style.display === "none") ? "inline-block" : "none";
+    
+        if (solidHeart.style.display === "none") {
+            swal("Removed From Wishlist", " ", "info", {
+            timer: 1000,
+            button:false,
+
+            });
+            count--;
+        } else {
+            swal("Added to Wishlist", " ", "success", {
+                button:false,
+            timer: 1000,
+
+            });
+            count++;
+        }
+    
+        if (count > 0) {
+            counter.style.display = "inline-block";
+        } else {
+            counter.style.display = "none";
+        }
+    
+        counter.innerHTML = count;
+        });
+    });
+ //add to cart
+ const cartList = document.querySelectorAll('.product-card');
+const cartCounter = document.getElementById('cart-counter');
+let count2 = parseInt(cartCounter.innerText);
+if (count2 === 0) {
+    cartCounter.style.display = "none";
+    }
+
+cartList.forEach(item => {
+  const addToCartBtn = item.querySelector('.cart');
+
+  addToCartBtn.addEventListener('click', () => {
+    const isAdded = item.getAttribute('data-added') === 'true';
+
+    if (isAdded) {
+        alertify.notify('Already added to cart', 'error', 5);
+    } else {
+      item.setAttribute('data-added', 'true');
+      count2++;
+      cartCounter.innerHTML = count2;
+      swal("Added to Cart", " ", "success", {
+                timer: 2000,
+                button:false,
+              });
+    }
+    if (count2 > 0) {
+        cartCounter.style.display = "inline-block";
+        } else {
+        cartCounter.style.display = "none";
+        }
+  });
+});
+
+
+
+
+
+
+
+  
+
+    </script>
+</body>
+</html>

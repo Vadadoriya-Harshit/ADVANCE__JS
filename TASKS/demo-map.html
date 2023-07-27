@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        *{
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+           user-select: none;
+        }
+        a{
+           text-decoration: none;
+           color: black;
+        }
+        header{
+           display: grid;
+           grid-template-columns: 1.5fr 4fr 4.5fr;
+           padding: 10px;
+       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        .logo-area p{
+           color: gray;
+           font-style: italic;
+           font-weight: bold;
+           display: flex;
+           transform: translateX(50px);
+           align-items: center;
+           font-size: 17px;
+           padding-left: 7px;
+   
+        }
+        .logo-area p span{
+           color: rgb(213, 213, 21);
+        }
+   .search-area{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       position: relative;
+   }
+   .search-area input{
+       width: 95%;
+       height: 39px;
+       border: none;
+       outline: none;
+       padding-left: 33px;
+       border-radius: 5px;
+       background-color: #f1f5ff;
+   }
+   .search-area span{
+       position: absolute;
+       top: 35%;
+       left: 4%;
+       cursor: pointer;
+   }
+   :placeholder-shown{
+       padding-left: 13%;
+       font-size: 15px;
+   }
+   .actions{
+       display: grid;
+       grid-template-columns: 1fr 1fr 1fr 1fr;  
+   }
+   
+   .actions span{
+       margin: auto;
+      
+   }
+   .actions div:nth-child(2),.actions div:nth-child(1),.actions div:nth-child(3),.actions div:nth-child(4)
+   {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-size: 17px;
+   }
+   .actions div:nth-child(3) span{
+     padding: 5px;
+     cursor: pointer;
+   }
+   .actions div:nth-child(4){
+       cursor: pointer;
+   }
+   
+   .actions a{
+       text-decoration: none;
+        color: black;
+        padding: 10px;
+        border-radius: 8px;
+        transition: 0.5s;
+        cursor: pointer;
+    } 
+   .actions a:hover{
+       background-color: blue;
+       color: white;
+   }
+   .actions a:hover .fa-angle-down{
+       transform: rotateX(180deg);
+       font-size: 18px;
+   }
+   .fa-angle-down{
+       transform: rotateX(0deg);
+   }
+   .cat{
+       width: 100%;
+       height: 40px;
+       text-align: center;
+       display: flex;
+       align-items: center;
+       /* background-color: red; */
+   }
+   @media(max-width:1200px)
+   {
+       header{
+           grid-template-columns: 1fr 2fr 6fr;
+       }
+       .logo-area div{
+          transform: translateX(-27px);
+       }
+       .actions .p1 span,.p2 span{
+           display: none;
+       }
+   
+       .actions .p3 span:nth-child(2)
+       {
+           display: none;
+       }
+        
+    
+   }
+   .cat ul{
+       height: auto;
+       width: 100%;
+   }
+   
+   .cat ul li{
+       display: inline;
+       font-size: 17px;
+       padding: 10px;
+       cursor: pointer;
+   }
+   .container{
+       width: 100%;
+       height: 400px;   
+       padding: 50px;
+        display: grid;
+       grid-gap: 22px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+       justify-content: space-evenly;
+   }
+   .product-card{
+   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+   }
+   .card-img{
+       width: 100%;
+       height: 250px;
+       /* padding: 7px; */
+   }
+   .card-img img{
+       width: 100%;
+       height: 100%;
+   }
+   .card-info{
+   width: 100%;
+   height: auto;
+   font-family: sans-serif;
+   padding: 20px;
+
+   
+   }
+   .card-info b{
+       color: gray;
+       font-weight: normal;
+   }
+   .card-info p{
+       line-height: 22px;
+   }
+   .card-info p:nth-child(3)
+   {
+      font-size: 22px;
+      padding-top: 7px;
+   }
+   .card-info p b{
+       text-decoration: line-through;
+       font-size: 16px;
+   }
+   .card-info p span{
+       font-size: 18px;
+       padding-left: 17px;
+       color: green;
+   }
+   .card-info b:nth-child(4){
+       display: inline-block;
+       padding-top: 17px;
+   }
+   .wishlist,.cart{
+       cursor: pointer;
+   }
+   
+   
+     </style>
+     <style>
+   .fa-regular{
+    font-size: 33px;
+   }
+   .fa-solid{
+    font-size: 33px;
+   }
+   .increase{
+    position: relative;
+    transform: translateY(33px);
+    display: inline-block;
+    margin: auto;
+   }
+   #counter ,#cart-counter{
+    font-size: 13px;
+    position: absolute;
+    top: -45%;
+    right: -19%;
+    color: blue;
+    background-color: orange;
+    padding: 3px 6px 3px 6px;
+    border-radius: 50%;
+}
+.cart{
+    display: inline-block;
+  margin: 23px;
+  position: relative;
+}
+  </style>
+</head>
+<body>
+    <nav>
+    <span class="increase">
+        <i class="fa-regular fa-heart"> <b id="counter">0</b>
+        </i>
+    </span>
+    
+   <span class="cart">
+    <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+    <b id="cart-counter">0</b>
+   </span>
+        
+              
+    
+   
+    </nav>
+    <div class="container">
+        <div class="product-card cloth" data-added="false">
+          <div class="card-img">
+              <img src="https://rukminim2.flixcart.com/image/612/612/l3ys70w0/t-shirt/1/d/f/l-bon-full-sleeves-t-shirt-clothes-town-original-imageyqgfpr7qdqv.jpeg?q=70" alt="">
+          </div>
+          <div class="card-info">
+              <b>Clothes Town</b>
+              <p>Men Solid Mand....</p>
+              <p>&#8377;199
+                  <b>&#8377;499</b>
+                  <span>40% off</span>
+              </p>
+              <b>Size M, L, XL</b>
+             
+                  <span class="wishlist">
+                      <!-- Heart icon when not added to the wishlist -->
+                      <i class="fa-regular fa-heart"></i>
+                      <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+                  </span>
+              
+              <span class="cart">
+                <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+              </span>
+          </div>
+        </div>
+        <div class="product-card cloth" data-added="false">
+          <div class="card-img">
+             <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/3/p/h/m-mg23shln112-s-hs-clothes-encounters-original-imagr5ufbnbdysc6.jpeg?q=70" alt="" id="wish">
+          </div>
+          <div class="card-info">
+              <b>Clothes Town</b>
+              <p>Men Solid Mand....</p>
+              <p>&#8377;300
+                  <b>&#8377;499</b>
+                  <span>40% off</span>
+              </p>
+              <b>Size M, L, XL</b>
+              <span class="wishlist">
+                  <!-- Heart icon when not added to the wishlist -->
+                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+              </span>
+              <span class="cart">
+                  <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+              </span>
+          </div>
+        </div>
+        <div class="product-card cloth" data-added="false">
+          <div class="card-img">
+            <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/kids-t-shirt/t/r/y/4-5-years-na-kd-708-because-navy-26-atlans-clothes-original-imagz7bgarubcsya.jpeg?q=70" alt="" id="wish">
+          </div>
+          <div class="card-info">
+              <b>Clothes Town</b>
+              <p>Men Solid Mand....</p>
+              <p>&#8377;200
+                  <b>&#8377;499</b>
+                  <span>40% off</span>
+              </p>
+              <b>Size M, L, XL</b>
+              <span class="wishlist">
+                  <!-- Heart icon when not added to the wishlist -->
+                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+              </span>
+              <span class="cart">
+                  <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+              </span>
+          </div>
+        </div>
+        <div class="product-card cloth" data-added="false">
+          <div class="card-img">
+           <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/w/e/i/s-mg23shln110-s-hs-clothes-encounters-original-imagr5p2n7fsqyqz.jpeg?q=70" alt="" id="wish">
+          </div>
+          <div class="card-info">
+              <b>Clothes Town</b>
+              <p>Men Solid Mand....</p>
+              <p>&#8377;299
+                  <b>&#8377;249</b>
+                  <span>40% off</span>
+              </p>
+              <b>Size M, L, XL</b>
+              <span class="wishlist">
+                  <!-- Heart icon when not added to the wishlist -->
+                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
+              </span>
+              <span class="cart">
+                  <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+              </span> 
+          </div>
+        </div>
+        <!-- ----------- -->
+    </div>
+    <script>
+        const wishlistIcons = document.querySelectorAll(".wishlist");
+        const counter = document.getElementById('counter');
+        let count = parseInt(counter.innerText);
+      
+        if (count === 0) {
+          counter.style.display = "none";
+        }
+        wishlistIcons.forEach(wishlistIcon => {
+          wishlistIcon.addEventListener("click", () => {
+            const regularHeart = wishlistIcon.querySelector(".fa-regular");
+            const solidHeart = wishlistIcon.querySelector(".fa-solid");
+      
+            regularHeart.style.display = (regularHeart.style.display === "none") ? "inline-block" : "none";
+            solidHeart.style.display = (solidHeart.style.display === "none") ? "inline-block" : "none";
+      
+            if (solidHeart.style.display === "none") {
+              swal("Removed From Wishlist", " ", "info", {
+                timer: 2000,
+              });
+              count--;
+            } else {
+              swal("Added to Wishlist", " ", "success", {
+      
+              });
+              count++;
+            }
+      
+            if (count > 0) {
+              counter.style.display = "inline-block";
+            } else {
+              counter.style.display = "none";
+            }
+      
+            counter.innerText = count;
+          });
+        });
+
+     //add to cart
+const cartList = document.querySelectorAll('.product-card');
+const cartCounter = document.getElementById('cart-counter');
+let count2 = parseInt(cartCounter.innerText);
+
+cartList.forEach(item => {
+  const addToCartBtn = item.querySelector('.cart');
+
+  addToCartBtn.addEventListener('click', () => {
+    const isAdded = item.getAttribute('data-added') === 'true';
+
+   
+    if (isAdded) {
+        swal(" Already Added to Cart", " ", "error", {
+                timer: 2000,
+                button:false,
+              });
+    } else {
+    
+      item.setAttribute('data-added', 'true');
+      count2++;
+      cartCounter.innerText = count2;
+      swal("Added to Cart", " ", "success", {
+                timer: 2000,
+                button:false,
+              });
+    }
+  });
+});
+      </script>
+      
+
+</body>
+</html>

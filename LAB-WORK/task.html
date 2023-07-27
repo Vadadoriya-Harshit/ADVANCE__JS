@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      
+      const arr = [
+       {
+          title:"Movie-1",
+          year:2018,
+          rating:[1,2,3,4,5]
+       },
+       {
+          title:"Movie-2",
+          year:2019,
+          rating:[1,2,3,4,5]
+       },
+       {
+           title:"Movie-1",
+           year:2020,
+          rating:[1,2,3,4,5]
+       }
+
+      ];
+       
+      const x = arr.map((i)=>{
+          return i;
+      })
+      // Task 1: Calculate the average rating for each movie
+arr.forEach(arr => {
+  const totalRatings = arr.ratings.reduce((sum, rating) => sum + rating, 0);
+  arr.averageRating = totalRatings / arr.ratings.length;
+});
+
+
+    </script>
+</body>
+</html>

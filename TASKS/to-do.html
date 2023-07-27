@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            color: red;
+            display: block;
+            font-weight: bold;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+      <input type="text" name="" id="i1">
+      <button id="btn">Add</button>
+      <span id="err">
+
+      </span>
+      <ul id="list">
+
+      </ul>
+      <script>
+     var a= document.getElementById('i1');
+     var b= document.getElementById('btn');
+     var c= document.getElementById('list');
+     var er= document.getElementById('err');
+
+     b.addEventListener('click',()=>{
+        if(a.value=="")
+        {
+           er.innerHTML="Input Field is Required";
+        }
+        else{
+        var d = document.createElement('li');
+          d.innerHTML=a.value;
+          c.appendChild(d);
+          var dl= document.createElement('button');
+        dl.addEventListener('click',()=>{
+            c.removeChild(d);       
+            c.removeChild(dl);
+            c.removeChild(ed);
+        })
+          c.appendChild(dl);
+          var ed= document.createElement('button');
+        ed.addEventListener('click',()=>{
+          var edit = prompt("Edit Please");
+           d.innerHTML=edit;            
+        })
+        dl.innerHTML="Delete";
+        ed.innerHTML="Edit";
+          c.appendChild(ed);
+
+          a.value="";
+          er.innerHTML="";
+        }
+     })
+      </script>
+</body>
+</html>
