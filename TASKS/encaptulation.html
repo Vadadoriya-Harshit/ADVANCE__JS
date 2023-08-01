@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function createPerson(name, age) {
+  let _name = name; // private variable
+  let _age = age;   // private variable
+
+  function getName() {
+    return "<h1>"+_name +"</h1>"+"</br>";
+  }
+
+  function getAge() {
+    return "<h1>"+_age +"</h1>"+"<br>";
+  }
+
+  function setAge(newAge) {
+    if (newAge >= 0) {
+      _age = newAge;
+    }
+  }
+
+  return {
+    getName,
+    getAge,
+    setAge,
+  };
+}
+
+const person = createPerson("John", 30);
+
+document.write(person.getName()); // Output: John
+document.write(person.getAge());  // Output: 30
+
+person.setAge(35);
+document.write(person.getAge());  // Output: 35
+
+    </script>
+</body>
+</html>

@@ -26,7 +26,6 @@
    }
    .container .fa-solid{
     font-size: 33px;
-
    }
      *{
         margin: 0;
@@ -53,7 +52,6 @@
         align-items: center;
         font-size: 17px;
         padding-left: 7px;
-
      }
      .logo-area p span{
         color: rgb(213, 213, 21);
@@ -1247,7 +1245,7 @@ allLi.forEach(li => {
             swal("Added to Wishlist", " ", "success", {
                 button:false,
             timer: 1000,
-
+          
             });
             count++;
         }
@@ -1277,7 +1275,8 @@ cartList.forEach(item => {
 
     if (isAdded) {
         alertify.notify('Already added to cart', 'error', 5);
-    } else {
+       
+    } else { 
       item.setAttribute('data-added', 'true');
       count2++;
       cartCounter.innerHTML = count2;

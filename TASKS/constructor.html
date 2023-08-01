@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class sum{
+            constructor(x,y)
+            {
+               this.x=x;
+               this.y=y;
+              
+            }
+            Operands()
+            {
+                document.write(`<h1>A is : ${this.x}</h1>`);
+               document.write(`<h1>B is : ${this.y}</h1>`);
+            }
+            add()
+            {
+               document.write(`<h1>Addition of A and B is : ${this.x+this.y}</h1>`);
+
+            }
+        }
+
+        var x = Number(prompt("Enter A :"));
+        var y = Number(prompt("Enter B :"));
+        const obj = new sum(x,y);
+        obj.Operands();
+        
+       var x= setInterval(() => {
+            obj.add();
+        }, 2000);
+        
+        setTimeout(() => {
+            clearInterval(x);
+        }, 6000);
+    </script>
+</body>
+</html>
