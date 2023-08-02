@@ -4,12 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        span {
+            color: red;
+            font-weight: bold;
+            display: block;
+        }
+    </style>
 </head>
 <body>
+    <input type="text" id="inputField" value="">
+    <span id="errorMessage"></span>
     <script>
-        var arr=[45,79,133,254,838];
-     var a = arr.sort();
-        console.log(a);
+        // Get references to the input field and error message elements
+        var inputField = document.getElementById("inputField");
+        var errorMessage = document.getElementById("errorMessage");
+
+        // Function to check if the value entered is not a number (contains characters)
+        function isInputNotANumber(value) {
+            return isNaN(value);
+        }
+
+        // Function to display the error message
+        function showErrorMessage(message) {
+            errorMessage.innerHTML = message;
+        }
+
+        // Function to handle input changes
+        function handleInputChange() {
+            var inputValue = inputField.value;
+
+            // Check if the input contains characters
+            if (isNaN(inputValue)) {
+                showErrorMessage("Please Enter Characters Only");
+            } else {
+               
+                showErrorMessage("");
+            }
+        }
+
+     
+        inputField.addEventListener("input", handleInputChange);
     </script>
 </body>
 </html>
