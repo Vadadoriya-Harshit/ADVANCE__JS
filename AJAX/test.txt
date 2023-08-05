@@ -1,0 +1,2 @@
+Ajax is working and  this data is
+ fetched dynamically.

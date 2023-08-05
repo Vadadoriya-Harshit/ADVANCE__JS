@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+</head>
+<body>
+    
+    <script>
+        function promo(complete)
+        {
+            return new Promise((resolve,reject)=>{
+                console.log("Fetching Data Please Wait.....!");
+                setTimeout(() => {
+                  $.get("https://jsonplaceholder.typicode.com/posts",function(data)
+                  {
+                    console.log(data);
+                  }
+                  )             
+                }, 3000);   
+            }).fail(err=>{
+                reject("Failed to Fetch Data");
+            })
+        }
+
+        // let Success = (result)=>{
+        //     console.log(result);
+        // }
+        // let Failed = (err)=>{
+        //     console.log(err);
+        // }
+        promo(false
+        
+        ).then((result)=>{
+            console.log(result);
+        }).catch((err)=>{
+            console.log(err);
+        });
+    </script>
+</body>
+</html>

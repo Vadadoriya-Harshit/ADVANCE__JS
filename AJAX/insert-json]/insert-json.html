@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="test()">Click</button>
+    <script>
+        function test()
+        {
+            
+            fetch("data.json",{
+    method: 'POST',
+    body: JSON.stringify({
+        id : "14",
+       name : "Jignesh",
+     
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  }).then((response)=>{
+              return response.json();
+            }).then((data)=>{
+              for(var x in data)
+              {
+                document.write(`<b><h1>${data[x].id} ::${data[x].name}  </b></h1><br>`);
+              }
+            }).catch( ()=>document.write("<h1>Data Not Fetched !</h1>")
+         )
+        }
+    </script>
+</body>
+</html>

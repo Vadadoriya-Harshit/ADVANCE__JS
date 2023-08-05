@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- pleae not this if in inheritance b class extend to a and both has a same constructor so please super() constructor in derived class -->
+    <script>
+        class A{
+            constructor()
+            {
+                console.log("CONSTRUCTOR A CALLED");
+            }
+        }
+        class B extends A{
+            constructor()
+            {
+                super();
+                console.log("CONSTRUCTOR B CALLED");
+
+            }
+        }
+        let y = new B;
+
+    </script>
+</body>
+</html>

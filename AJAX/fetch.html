@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="test()">Fetch</button>
+    <script>
+
+      function test()
+      {
+        fetch("https://jsonplaceholder.typicode.com/users").then((response)=>response.json()).then(
+      (data)=>{
+       for(var x in data)
+       {
+        document.write(`${data[x].name}-${data[x].email}-${data[x].address.city}<br><br>`);
+       }
+      }).catch(()=>{
+            document.write("Data Feched Failed")
+        });
+      }
+    </script>
+</body> 
+</html>

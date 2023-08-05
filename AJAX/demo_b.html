@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+
+    <script>
+        fetch("demo-a.json").then((result)=>{
+            return result.json();
+        }).then(
+           (data)=>{
+            console.log(data);
+           }
+        ).catch("Data Not Fetched !");s
+    </script>
+    
+</body>
+</html>

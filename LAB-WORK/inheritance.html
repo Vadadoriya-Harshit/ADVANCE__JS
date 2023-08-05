@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Level Inheritance</title>
+    <link rel="icon" type="image/png" href="ll (1).png" sizes="32x32">
+</head>
+<body>
+    <script>
+        class A {
+            a=22;
+        }
+        class B extends A {
+            b=33;
+        }   
+        class C extends B {
+            add() {
+                const total = this.a + this.b;
+                return total;
+            }
+        }
+
+        const y = new C();
+        const result = y.add();
+        document.write(`<h1>The sum of A and B is: ${result}</h1>`);
+    </script>   
+</body>
+</html>

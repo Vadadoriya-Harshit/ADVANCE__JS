@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods in inheritance</title>
+</head>
+<body>
+    <script>     
+        class A{
+            info()
+            {
+                console.log("this metod is method of BASE class");
+            }
+        }
+        class B extends A{
+           info()
+            {
+                console.log("this metod is method of DERIVED class");
+                super.info();
+            }
+        }
+
+        let x = new B;
+        x.info();
+        
+    </script>
+</body>
+</html>
