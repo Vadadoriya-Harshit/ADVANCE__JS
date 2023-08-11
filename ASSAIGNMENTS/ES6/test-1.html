@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function great(name)
+         {
+            return "this is" + name + "function";
+         }
+         console.log(great(" normal "));
+
+        //  type -2 
+        // () -> Paranthises
+        //->Arrow function start with ()=>{
+
+        // }
+
+      const great2 = (name) =>{
+           return "this is "+  name + "function";
+      };
+         console.log(great2("Aerrow "));
+        //  if you have to pass single parameter so you can write this argument without(paranthises)
+      
+        
+      const great3 = name =>{
+           return "this is "+  name + "  function";
+      };
+         console.log(great3("Aerrow  with single parameter"));
+           //  if you have to pass double parameter so you can write this argument with(paranthises comma seprated value)
+           const great4 = (name,second) =>{
+           return "this is "+  name + second;
+      };
+         console.log(great4("Aerrow  with doubleparameter  ","use peranthises"));
+    </script>
+</body>
+</html>
