@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THIS.STATE()</title>
+</head>
+<body>
+    <h1>
+        <b>
+            <pre>
+                import React from "react";
+
+class Cllass extends React.Component{
+     constructor()
+     {
+        super();
+        this.state={
+            name : "harshit",
+            age : 18,
+        }
+     }
+     namechange()
+     {
+        console.log(this.state  );
+        this.setState({name:"krishna",age:"17"},()=>{
+           
+        });
+     }
+    render()
+    {
+        return(
+            <>
+            <h1>Dear {this.state.name} , {this.state.age} years old, welcome to tops technology</h1>
+           <button onClick={this.namechange.bind(this)}>
+            Name change please
+           </button>
+            </>
+        )
+    }
+}
+export default Cllass;
+            </pre>
+        </b>
+    </h1>
+</body>
+</html>

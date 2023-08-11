@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Test(a,b)
+        {
+           this.a=a;
+           this.b=a;
+           return a + "   "+b;
+        }
+
+        const x = Test("object-1","called-1")
+        const y= Test("object-2","called-2")
+        const z= Test("object-3","called-3")
+        console.log(x);
+        console.log(y);
+        console.log(z);
+    </script>
+</body>
+</html>

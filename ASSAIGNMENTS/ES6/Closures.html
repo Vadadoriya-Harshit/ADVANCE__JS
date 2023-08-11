@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1>Closures are functions with the ability to access the variables from their outer scope.
+  </h1>
+  <b>
+    <h1>
+       <pre>
+        function out()
+        {
+           var a=22;
+           function inner()
+           {
+              console.log(a);
+           }
+           return inner;
+        }
+    
+      var innerfunction = out();
+      innerfunction();
+      
+       </pre>
+    </h1>
+  </b>
+    <script>
+     
+     function out()
+     {
+        var a=22;
+        function inner()
+        {
+           console.log(a);
+        }
+        return inner;
+     }
+ 
+   var innerfunction = out();
+   innerfunction();
+   
+
+    </script>
+</body>
+</html>

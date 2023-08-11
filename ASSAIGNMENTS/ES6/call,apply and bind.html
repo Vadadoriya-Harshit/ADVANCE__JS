@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function Borrowing</title>
+</head>
+<body>
+ <script>
+  const obj1 = {
+  a: 12,
+  b: 12,
+  add: function () {
+    return this.a + this.b;
+  },
+};
+
+const obj2 = {
+  a: 20,
+  b: 12,
+};
+
+const obj3 = {
+  a: 10,
+  b: 10,
+};
+const obj4 = {
+  a: 40,
+  b: 10,s
+};
+
+const result = obj1.add.call(obj3);
+const result1 = obj1.add.apply(obj2);
+const result2 = obj1.add.bind(obj4);
+console.log(result); 
+console.log(result1); 
+console.log(result2()); 
+
+ </script>
+</body>
+</html>

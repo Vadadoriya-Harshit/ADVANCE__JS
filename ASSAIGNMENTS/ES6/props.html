@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        <b>
+            <pre>
+                import React from "react";
+export class Main extends React.Component{
+  render()
+  {
+    return(
+      <>
+      <h1>Hey ! {this.props.n1}Component Called...!</h1>
+    <h2>This is Props within Class</h2>
+
+      </>
+    )
+  }
+}
+ function App(props) {
+  return (
+   <>
+    <h1>Hey !{props.n2} Component Called...!</h1>
+    <h2>This is Props within Function</h2>
+    <Main n1=" Class"/>
+   </>
+  );
+}
+
+export default App;
+
+
+
+
+
+            </pre>
+        </b>
+    </h1>
+</body>
+</html>
