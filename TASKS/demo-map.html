@@ -4,116 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <link rel="stylesheet" href="all.css">
-  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      .strike-text{
+        color: gray;
+      }
+      .card{
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      .actions >*{
+        cursor: pointer;
+      }
+      .fa-cart-shopping{
+        cursor: pointer;
+      }
+      #cart-count{
+        font-size: 14px;
+        background-color: yellow;
+        color: red;
+        padding: 2px 8px 2px 8px;
+        border-radius: 50%;
+        position: absolute;
+        top: 0%;
+        right: 0%;
+      }
+      .main-cart{
+       display: block;
+        position: relative;
+      }
+      @media(max-width:1400px){
+        .card{
+          margin: 7px;
+        }
+      }
+      @media(max-width:1200px){
+        .card{
+          margin: 9px;
+        }
+      }
+    
+    </style>
 </head>
 <body>
-    <nav>
-   <span class="cart" style="margin-left: 50%;">
-    <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
-   </span>
-        
-              
-    
-   
-    </nav>
-    <div class="container">
-        <div class="product-card cloth" data-added="false">
-          <div class="card-img">
-              <img src="https://rukminim2.flixcart.com/image/612/612/l3ys70w0/t-shirt/1/d/f/l-bon-full-sleeves-t-shirt-clothes-town-original-imageyqgfpr7qdqv.jpeg?q=70" alt="">
-          </div>
-          <div class="card-info">
-              <b>Clothes Town</b>
-              <p>Men Solid Mand....</p>
-              <p>&#8377;199
-                  <b>&#8377;499</b>
-                  <span>40% off</span>
-              </p>
-              <b>Size M, L, XL</b>
-             
-                  <span class="wishlist">
-                      <!-- Heart icon when not added to the wishlist -->
-                      <i class="fa-regular fa-heart"></i>
-                      <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
-                  </span>
-              
-              <span class="cart">
-                <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
-              </span>
-          </div>
-        </div>
-        <div class="product-card cloth" data-added="false">
-          <div class="card-img">
-             <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/3/p/h/m-mg23shln112-s-hs-clothes-encounters-original-imagr5ufbnbdysc6.jpeg?q=70" alt="" id="wish">
-          </div>
-          <div class="card-info">
-              <b>Clothes Town</b>
-              <p>Men Solid Mand....</p>
-              <p>&#8377;300
-                  <b>&#8377;499</b>
-                  <span>40% off</span>
-              </p>
-              <b>Size M, L, XL</b>
-              <span class="wishlist">
-                  <!-- Heart icon when not added to the wishlist -->
-                  <i class="fa-regular fa-heart"></i>
-                  <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
-              </span>
-              <span class="cart">
-                  <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
-              </span>
-          </div>
-        </div>
-        <div class="product-card cloth" data-added="false">
-          <div class="card-img">
-            <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/kids-t-shirt/t/r/y/4-5-years-na-kd-708-because-navy-26-atlans-clothes-original-imagz7bgarubcsya.jpeg?q=70" alt="" id="wish">
-          </div>
-          <div class="card-info">
-              <b>Clothes Town</b>
-              <p>Men Solid Mand....</p>
-              <p>&#8377;200
-                  <b>&#8377;499</b>
-                  <span>40% off</span>
-              </p>
-              <b>Size M, L, XL</b>
-              <span class="wishlist">
-                  <!-- Heart icon when not added to the wishlist -->
-                  <i class="fa-regular fa-heart"></i>
-                  <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
-              </span>
-              <span class="cart">
-                  <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
-              </span>
-          </div>
-        </div>
-        <div class="product-card cloth" data-added="false">
-          <div class="card-img">
-           <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/w/e/i/s-mg23shln110-s-hs-clothes-encounters-original-imagr5p2n7fsqyqz.jpeg?q=70" alt="" id="wish">
-          </div>
-          <div class="card-info">
-              <b>Clothes Town</b>
-              <p>Men Solid Mand....</p>
-              <p>&#8377;299
-                  <b>&#8377;249</b>
-                  <span>40% off</span>
-              </p>
-              <b>Size M, L, XL</b>
-              <span class="wishlist">
-                  <!-- Heart icon when not added to the wishlist -->
-                  <i class="fa-regular fa-heart"></i>
-                  <i class="fa-solid fa-heart" style="color: #db1414; display: none;"></i>
-              </span>
-              <span class="cart">
-                  <img width="30" height="30" id="cart" src="https://img.icons8.com/ios/5000/shopping-cart--v1.png" alt="shopping-cart--v1"/>
-              </span> 
-          </div>
-        </div>
-        <!-- ----------- -->
-    </div>
-  
-      
+  <div class="container p-5 text-center">
+    <img width="30" class="main-cart" height="30" src="https://img.icons8.com/ios/50/shopping-cart--v1.png" alt="shopping-cart--v1" id="cart"/>
 
+    <b id="cart-count">1</b>
+  </div>
+
+
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="card" style="width:300px">
+      <img class="card-img-top p-2" src="t.png" alt="Card image" height="250px">
+      <div class="card-body">
+        <b class="card-name text-muted fw-normal">
+          Lxri
+        </b>
+        <h5 class="card-title">Boys Party(Festive) Shirt </h5>
+        <b class="text-muted fw-normal d-block">
+          Light Blue
+        </b>
+        <h3 class="d-inline">&#8377; 588</h3><del class="strike-text ps-3 fs-5">&#8377;1999</del>
+         <b class="fs-5 ps-4 actions">
+          <img width="30" height="30" src="https://img.icons8.com/ios/50/like--v1.png" alt="like--v1" id="wishlist"/>
+          <img width="30" height="30" src="https://img.icons8.com/ios/50/shopping-cart--v1.png" alt="shopping-cart--v1" id="cart"/></b>
+         <b class="text-success">
+         70% off
+         </b>
+      </div>
+    </div>
+    <div class="card" style="width:300px">
+      <img class="card-img-top p-2" src="https://rukminim2.flixcart.com/image/612/612/ko0d6kw0/kids-apparel-combo/f/x/1/3-6-months-gobs20-2427-babygo-original-imag2k6cwdf4txft.jpeg?q=70" alt="Card image" height="250px">
+      <div class="card-body">
+        <b class="card-name text-muted fw-normal">
+          BabyGo 
+        </b>
+        <h5 class="card-title">Baby Boys Casual T-shirt</h5>
+        <b class="text-muted fw-normal d-block">
+          Dark Blue
+        </b>
+        <h3 class="d-inline">&#8377; 428</h3><del class="strike-text ps-3 fs-5">&#8377;1,299</del>
+         <b class="fs-5 ps-4 actions">
+          <img width="30" height="30" src="https://img.icons8.com/ios/50/like--v1.png" alt="like--v1" id="wishlist"/>
+          <img width="30" height="30" src="https://img.icons8.com/ios/50/shopping-cart--v1.png" alt="shopping-cart--v1" id="cart"/></b>
+         <b class="text-success">
+          67% off
+         </b>
+      </div>
+    </div>
+    <div class="card" style="width:300px">
+      <img class="card-img-top p-2" src="https://rukminim2.flixcart.com/image/612/612/xif0q/kids-t-shirt/t/r/y/4-5-years-na-kd-708-because-navy-26-atlans-clothes-original-imagz7bgarubcsya.jpeg?q=70" alt="Card image" height="250px">
+      <div class="card-body">
+        <b class="card-name text-muted fw-normal">
+          ATLANS CLOTHES
+        </b>
+        <h5 class="card-title">Boys Printed Cotton Blend T Shirt  </h5>
+        <b class="text-muted fw-normal d-block">
+          White,
+        </b>
+        <h3 class="d-inline">&#8377; 255</h3><del class="strike-text ps-3 fs-5">&#8377;1,499</del>
+         <b class="fs-5 ps-4 actions">
+          <img width="30" height="30" src="https://img.icons8.com/ios/50/like--v1.png" alt="like--v1" id="wishlist"/>
+          <img width="30" height="30" src="https://img.icons8.com/ios/50/shopping-cart--v1.png" alt="shopping-cart--v1" id="cart"/></b>
+         <b class="text-success">
+         82% off
+         </b>
+      </div>
+    </div>
+    <div class="card" style="width:300px">
+      <img class="card-img-top p-2" src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/u/r/p/s-crc-den-db-navy-carbonn-cloth-original-imagh2zyymbcgzrd.jpeg?q=70" alt="Card image" height="250px">
+      <div class="card-body">
+        <b class="card-name text-muted fw-normal">
+          Carbonn Cloth
+        </b>
+        <h5 class="card-title">Men Regular Fit Collar Casual Shirt</h5>
+        <b class="text-muted fw-normal d-block">
+          Light Blue
+        </b>
+        <h3 class="d-inline">&#8377; 489</h3><del class="strike-text ps-3 fs-5">&#8377;1,699</del>
+         <b class="fs-5 ps-4 actions">
+          <img width="30" height="30" src="https://img.icons8.com/ios/50/like--v1.png" alt="like--v1" id="wishlist"/>
+          <img width="30" height="30" src="https://img.icons8.com/ios/50/shopping-cart--v1.png" alt="shopping-cart--v1" id="cart"/></b>
+         <b class="text-success">
+         71% off
+         </b>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

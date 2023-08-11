@@ -2,22 +2,29 @@
     {
         "name":"Harshit Vadadoriya",
         "age": 18,
-        "city":"Amreli"
+        "city":"Amreli",
+        "img":"img/t.png"
     },
     {
         "name":"Mayur Sonagara",
         "age": "19",
-        "city":"Morbi"
+        "city":"Morbi",
+        "img":"img/t.png"
+
     },
     {
         "name":"Karan Chandaria",
         "age": "22",
-        "city":"Jamnagar"
+        "city":"Jamnagar",
+        "img":"img/t.png"
+
     },
     {
         "name":"Dixit Shingala",
         "age": "19",
-        "city":"Gondal"
+        "city":"Gondal",
+        "img":"img/t.png"
+
     }
     
     
