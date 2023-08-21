@@ -20,20 +20,8 @@
       .fa-cart-shopping{
         cursor: pointer;
       }
-      #cart-count{
-        font-size: 14px;
-        background-color: yellow;
-        color: red;
-        padding: 2px 8px 2px 8px;
-        border-radius: 50%;
-        position: absolute;
-        top: 0%;
-        right: 0%;
-      }
-      .main-cart{
-       display: block;
-        position: relative;
-      }
+     
+     
       @media(max-width:1400px){
         .card{
           margin: 7px;
@@ -46,20 +34,24 @@
       }
     
     </style>
+    
 </head>
 <body>
-  <div class="container p-5 text-center">
-    <img width="30" class="main-cart" height="30" src="https://img.icons8.com/ios/50/shopping-cart--v1.png" alt="shopping-cart--v1" id="cart"/>
+  <button class="btn btn-primary d-block m-auto mt-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Go to Cart</button>
 
-    <b id="cart-count">1</b>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-
-
-
+  <div class="offcanvas-body" id="Get">
+  </div>
+</div>
+  
+  </div>
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="card" style="width:300px">
-      <img class="card-img-top p-2" src="t.png" alt="Card image" height="250px">
+      <img class="card-img-top p-2" src="t.png" alt="Card image" height="250px" id="card-img">
       <div class="card-body">
         <b class="card-name text-muted fw-normal">
           Lxri
@@ -78,7 +70,7 @@
       </div>
     </div>
     <div class="card" style="width:300px">
-      <img class="card-img-top p-2" src="https://rukminim2.flixcart.com/image/612/612/ko0d6kw0/kids-apparel-combo/f/x/1/3-6-months-gobs20-2427-babygo-original-imag2k6cwdf4txft.jpeg?q=70" alt="Card image" height="250px">
+      <img class="card-img-top p-2" src="https://rukminim2.flixcart.com/image/612/612/ko0d6kw0/kids-apparel-combo/f/x/1/3-6-months-gobs20-2427-babygo-original-imag2k6cwdf4txft.jpeg?q=70" alt="Card image" height="250px" id="card-img">
       <div class="card-body">
         <b class="card-name text-muted fw-normal">
           BabyGo 
@@ -97,7 +89,7 @@
       </div>
     </div>
     <div class="card" style="width:300px">
-      <img class="card-img-top p-2" src="https://rukminim2.flixcart.com/image/612/612/xif0q/kids-t-shirt/t/r/y/4-5-years-na-kd-708-because-navy-26-atlans-clothes-original-imagz7bgarubcsya.jpeg?q=70" alt="Card image" height="250px">
+      <img class="card-img-top p-2" src="https://rukminim2.flixcart.com/image/612/612/xif0q/kids-t-shirt/t/r/y/4-5-years-na-kd-708-because-navy-26-atlans-clothes-original-imagz7bgarubcsya.jpeg?q=70" alt="Card image" height="250px" id="card-img">
       <div class="card-body">
         <b class="card-name text-muted fw-normal">
           ATLANS CLOTHES
@@ -116,7 +108,7 @@
       </div>
     </div>
     <div class="card" style="width:300px">
-      <img class="card-img-top p-2" src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/u/r/p/s-crc-den-db-navy-carbonn-cloth-original-imagh2zyymbcgzrd.jpeg?q=70" alt="Card image" height="250px">
+      <img class="card-img-top p-2" src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/u/r/p/s-crc-den-db-navy-carbonn-cloth-original-imagh2zyymbcgzrd.jpeg?q=70" alt="Card image" height="250px" id="card-img">
       <div class="card-body">
         <b class="card-name text-muted fw-normal">
           Carbonn Cloth
@@ -136,5 +128,124 @@
     </div>
   </div>
 </div>
+
+<!-- 
+<script>
+   var body = document.getElementById('Get');
+  var cartBtns = document.querySelectorAll("#cart");
+  var imagesContainer = document.querySelector("#Get");
+  var cardImages = document.querySelectorAll(".card-img-top");
+  
+  cartBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+    var selectedimg = cardImages[index].src;
+    var rowDiv = document.createElement('div');
+        rowDiv.classList.add('row','border','border-dark','my-2');
+        rowDiv.style.position = 'relative'; // Set position to relative for absolute positioning of close button
+
+// Create the close button
+var closeButton = document.createElement('span');
+closeButton.innerHTML = '&#10006;'; // Unicode for "x" symbol
+closeButton.classList.add('close-button');
+
+  // Create the left column (col-3) element
+        var col3Div = document.createElement('div');
+        col3Div.classList.add('col-3');
+        var img = document.createElement('img');
+        img.classList.add('shadow');
+        img.setAttribute('src', selectedimg); 
+        // Set the image source
+        img.setAttribute('alt', '');
+        img.setAttribute('width', '90px');
+        img.setAttribute('height', '90px');
+        col3Div.appendChild(img);
+        // Create the right column (col-9) element
+        var col9Div = document.createElement('div');
+        col9Div.classList.add('col-9');
+        // Append col-3 and col-9 to the row
+        rowDiv.appendChild(closeButton);
+        rowDiv.appendChild(col3Div);
+        rowDiv.appendChild(col9Div);
+        // Append the row to the parent element with ID "Get"
+        imagesContainer.appendChild(rowDiv);
+    });
+  });
+</script> -->
+<script>
+  // Initialize the cartProducts array from localStorage
+  var cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+
+  var body = document.getElementById('Get');
+  var imagesContainer = document.querySelector("#Get");
+
+  function updateLocalStorage() {
+      localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+  }
+
+  function addToCart(selectedImg) {
+      if (!cartProducts.includes(selectedImg)) {
+          cartProducts.push(selectedImg);
+          updateLocalStorage();
+          createCartItem(selectedImg);
+      } else {
+          alert('Product is already added to the cart.');
+      }
+  }
+
+  function removeFromCart(selectedImg) {
+      var index = cartProducts.indexOf(selectedImg);
+      if (index !== -1) {
+          cartProducts.splice(index, 1);
+          updateLocalStorage();
+      }
+  }
+
+  function createCartItem(selectedImg) {
+      var rowDiv = document.createElement('div');
+      rowDiv.classList.add('row', 'border', 'border-dark', 'my-2');
+      rowDiv.style.position = 'relative';
+
+      var closeButton = document.createElement('span');
+      closeButton.innerHTML = '&#10006;';
+      closeButton.classList.add('close-button');
+      closeButton.addEventListener('click', function() {
+          removeFromCart(selectedImg);
+          imagesContainer.removeChild(rowDiv);
+      });
+
+      var col3Div = document.createElement('div');
+      col3Div.classList.add('col-3');
+      var img = document.createElement('img');
+      img.classList.add('shadow');
+      img.setAttribute('src', selectedImg);
+      img.setAttribute('alt', '');
+      img.setAttribute('width', '90px');
+      img.setAttribute('height', '90px');
+      col3Div.appendChild(img);
+
+      var col9Div = document.createElement('div');
+      col9Div.classList.add('col-9');
+
+      rowDiv.appendChild(closeButton);
+      rowDiv.appendChild(col3Div);
+      rowDiv.appendChild(col9Div);
+
+      imagesContainer.appendChild(rowDiv);
+  }
+
+  // Create cart items on page load
+  cartProducts.forEach(createCartItem);
+
+  var cartBtns = document.querySelectorAll("#cart");
+  var cardImages = document.querySelectorAll(".card-img-top");
+
+  cartBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        
+          var selectedImg = cardImages[index].src;
+          addToCart(selectedImg);
+      });
+  });
+</script>
 </body>
 </html>
