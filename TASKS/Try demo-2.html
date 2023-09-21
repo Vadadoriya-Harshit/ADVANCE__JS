@@ -129,83 +129,9 @@
  
   </div>
 </div>
-
 <script>
-  // Initialize the cartProducts array from localStorage
-  var cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
-
-  var body = document.getElementById('Get');
-  var imagesContainer = document.querySelector("#Get");
-
-  function updateLocalStorage() {
-      localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
-  }
-
-  function addToCart(selectedImg) {
-      if (!cartProducts.includes(selectedImg)) {
-          cartProducts.push(selectedImg);
-          updateLocalStorage();
-          createCartItem(selectedImg);
-      } else {
-          alert('Product is already added to the cart.');
-      }
-  }
-
-  function removeFromCart(selectedImg) {
-      var index = cartProducts.indexOf(selectedImg);
-      if (index !== -1) {
-          cartProducts.splice(index, 1);
-          updateLocalStorage();
-      }
-  }
-
-  function createCartItem(selectedImg) {
-      var rowDiv = document.createElement('div');
-      rowDiv.classList.add('row', 'border', 'border-dark', 'my-2');
-      rowDiv.style.position = 'relative';
-
-      var closeButton = document.createElement('span');
-      closeButton.innerHTML = '&#10006;';
-      closeButton.classList.add('close-button');
-      closeButton.addEventListener('click', function() {
-          removeFromCart(selectedImg);
-          imagesContainer.removeChild(rowDiv);
-      });
-
-      var col3Div = document.createElement('div');
-      col3Div.classList.add('col-3');
-      var img = document.createElement('img');
-      img.classList.add('shadow');
-      img.setAttribute('src', selectedImg);
-      img.setAttribute('alt', '');
-      img.setAttribute('width', '90px');
-      img.setAttribute('height', '90px');
-      col3Div.appendChild(img);
-
-      var col9Div = document.createElement('div');
-      col9Div.classList.add('col-9');
-
-      rowDiv.appendChild(closeButton);
-      rowDiv.appendChild(col3Div);
-      rowDiv.appendChild(col9Div);
-
-      imagesContainer.appendChild(rowDiv);
-  }
-
-  // Create cart items on page load
-  cartProducts.forEach(createCartItem);
-
-  var cartBtns = document.querySelectorAll("#cart");
-  var cardImages = document.querySelectorAll(".card-img-top");
-
-  cartBtns.forEach((btn, index) => {
-      btn.addEventListener('click', () => {
-          var selectedImg = cardImages[index].src;
-          addToCart(selectedImg);
-      });
-  });
+    
 </script>
-
 
 </body>
 </html>
